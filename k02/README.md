@@ -1,5 +1,4 @@
 # 課題2 レポート
-学籍番号　氏名
 
 
 ## 課題
@@ -27,13 +26,7 @@ typedef struct {
 } City;
 ```
 
-英語版のデータを用意しました。名称は、nagasaki2.csvです。チャレンジ問題2で、一致する文字列が見つからない場合、こちらを利用してください。その場合、main関数内にあるfopenの引数を下記のように変更してください。
-```    
-fp = fopen("nagasaki2.csv","r");
-```
-
-
-1. 必須問題：実装する関数  
+2. 必須問題：実装する関数  
 (1) InsertNewNode：必要なメモリを確保し、リストの先頭に新しいデータを挿入する。  
     [入力]
     - City newCity: リストに挿入する市町村のデータ
@@ -59,7 +52,6 @@ fp = fopen("nagasaki2.csv","r");
 
 4. チャレンジ問題  
 (1) DeleteNodeAt: 任意のノードをリストから削除する(10点)  
-CHALLENGE2を有効にしてください。  
     [入力]  
     - Node** ppNode: リストの先頭を指すポインタ変数のアドレス(ポインタのポインタ)  
     - int cn: ノードの位置(先頭のノードを0とする)  
@@ -67,24 +59,32 @@ CHALLENGE2を有効にしてください。
     - return値: 削除に成功したらSUCCESS、失敗したらERRR  
 
     (2) SearchCityByName: 市町村を名称で検索する(5点)  
-    CHALLENGE1を有効にしてください。  
     [入力]
-    - Node* pList: リストの先頭アドレス
-    - char* cityName: 検索する市町村の名称
+    - int key: 検索する市町村のID
+    - City arrayCity: 検索対象の都市別人口データ(配列)
+    - int size: データの数  
 
     [出力]  
-    - return値: cityNameが合致した場所(先頭を0とする)。cityNameが一致するデータがない場合は-1。
-    - City* pCity: IDが合致した市町村のデータを入れる
+    - return値: IDが合致した配列データのindex。IDが一致するデータがない場合は-1。
 
 ## ソースコードの説明
-
+l.79 mallocで容量を確保する
+l.80　pNodeの中の構造体のcityをみる
+l.81　Node型のpNextをいれる
+l.82　作ったリストを返す
+l.108　リストがなくなるまで回す
+l.110　リストの中の構造体の中のIDをみる　IDを比較する
+l.111　Pcityの中に一致したIDのリストのデータcityを入れる
+l.114　違ったときは次に行く
 
 
 ## 出力結果
 
-```
 
-```
+City ID?42201
+the city was found at 21
+42201, NagasakiKen, Nagasaki, 429508, 198716, 230792
+free list. items = 21
 
 ## 修正履歴
 
