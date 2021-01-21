@@ -115,9 +115,29 @@ int AdjacencyMatrix[MAX_STATIONS][MAX_STATIONS] = {
 
 ## 出力結果
 
-```
+DepthFirstSearch
+0は到達した
+1は到達した
+2は到達した
+3は到達した
+4は到達した
+5は到達した
+6は到達した
+7は到達した
+BreadthFirstSearch
+0は到達した
+1は到達した
+2は到達した
+3は到達した
+4は到達した
+5は到達した
+6は到達した
+7は到達した
+Time Required: 8```
 
 ```
 
 ## 修正履歴
-
+MAX_STATIONをsizeに変更した
+matrix[][]を使った条件式内でUNVISITEDを０に変更した
+l.123,221：==を＝に変更した
